@@ -1,0 +1,179 @@
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+
+.topbar {
+  background: var(--navy-900);
+  color: #b9c6da;
+  font-size: 0.84rem;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.topbar a { color: #dbe4f2; }
+.topbar a:hover { color: var(--yellow-500); }
+.topbar__contacts { display: flex; gap: 20px; flex-wrap: wrap; }
+.topbar__contacts span { display: inline-flex; align-items: center; gap: 6px; }
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.28rem;
+  color: var(--navy-900);
+}
+.brand__mark {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+}
+.brand__name span { color: var(--blue-600); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav__links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav__links a {
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: var(--navy-800);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  border-bottom-color: var(--blue-600);
+  color: var(--blue-600);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy-900);
+  margin: 5px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    position: fixed;
+    inset: 68px 0 auto 0;
+    flex-direction: column;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 12px 24px 20px;
+    gap: 4px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .nav__links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--gray-100); }
+  .nav--open .nav__links {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-toggle { display: block; }
+  .topbar__contacts span:nth-child(2) { display: none; }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background: var(--navy-900);
+  color: #b9c6da;
+  padding: 64px 0 24px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.footer h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+.footer p { color: #9fb0c8; font-size: 0.92rem; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer a { color: #b9c6da; font-size: 0.92rem; }
+.footer a:hover { color: var(--yellow-500); }
+.footer__bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: #7f93ac;
+}
+@media (max-width: 800px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Sticky mobile WhatsApp / call bar */
+.mobile-actionbar {
+  display: none;
+}
+@media (max-width: 640px) {
+  .mobile-actionbar {
+    display: flex;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .mobile-actionbar .btn { flex: 1; padding: 12px; font-size: 0.88rem; }
+  body { padding-bottom: 64px; }
+}
